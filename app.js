@@ -1,4 +1,5 @@
 const express = require('express')
+var bodyParser = require('body-parser')
 let app = express()
 
 //Aqui van todos los routes
@@ -10,8 +11,15 @@ app.get('/', (req, res)=>{
 
 })
 
+//BODY PARSER CONFIG
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
 //Moddleware de rutas o indexando las rutas
 app.use('/api/v1/users', userRoute )
+
 
 const PORT = 3000
 
