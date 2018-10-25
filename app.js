@@ -1,22 +1,38 @@
 const express = require('express')
 let app = express()
 
+//Aqui van todos los routes
+let userRoute = require('./routes/users')
+
 app.get('/', (req, res)=>{
 
     res.send({message: 'hola a todos los de kinal' })
 
 })
 
+//Moddleware de rutas o indexando las rutas
+app.use('/api/v1/users', userRoute )
+
 const PORT = 3000
 
-/*investigar
-    - Que es un callback como funciona
-    - Diferencias entre function y =>
-    - let y var
-    - Jest https://jestjs.io/docs/en/getting-started (solo leer)
-    - Instalar nodejs https://nodejs.org/es/         
-    - https://www.npmjs.com/package/express
-    - Estructura de un JSON
+/*Ver
+    - https://github.com/mysqljs/mysql
+    - Middleware
+    - Bootstrap
+    - End-Point
+    - 'use_strict'
+*/
+
+/*
+TABLE DEMO
+
+CREATE TABLE users(
+	id_users INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(255) NOT NULL,
+    apellido VARCHAR(25) NOT NULL,
+    PRIMARY KEY(id_users)
+);
+
 */
 
 //Esto escucha el puerto
