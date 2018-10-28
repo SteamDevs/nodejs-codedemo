@@ -61,6 +61,17 @@ app.post('/', (req, res)=>{
     })
 })
 
+app.put('/:id' , (req, res)=>{
+
+    const { nombre, apellido } = req.body
+
+    req.body.id = req.params.id
+    console.log(req.body)
+    model_user.updateData(req.body, (results)=>{
+        res.send({ message: 'Se actuaizo algo'})
+    })
+})
+
 
 
 module.exports = app;

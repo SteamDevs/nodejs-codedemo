@@ -32,4 +32,15 @@ users.insertData = (data, callback )=>{
     }
 }
 
+users.updateData = (data, callback)=>{
+    if(database){
+        let values = [ data.nombre, data.apellido, data.id ]
+        let sql = `UPDATE users SET nombre =?, apellido=? WHERE id_users = ?`
+        database.query(sql, values, (err, results)=>{
+            if(err) throw err
+            callback(results)
+        })
+    }
+}
+
 module.exports = users
