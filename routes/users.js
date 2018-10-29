@@ -61,6 +61,36 @@ app.post('/', (req, res)=>{
     })
 })
 
+app.delete('/:id', (req, res)=>{
+    
+    let id = req.params.id
+    
+    model_user.deleteUsers( id, (deletData)=>{
+        if(!deletData){
+            return  res.send({ message: 'No pasaste nada en la url' })
+        }
+
+        res.status(200).json({
+            ok: true,
+            message: 'Consulta exitosa',
+            results: deletData
+        })
+    })
+})
+
+app.put('/:id', (req, res)=>{
+    
+    req.body.id = req.params.id
+    
+    model_user.updateUsers(req.body, (updateUser)=>{
+        res.status(200).json({
+            ok: true,
+            message: 'Consulta Exitosa',
+            results: updateUser 
+        })
+    })    
+})
+
 
 
 module.exports = app;

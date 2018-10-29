@@ -32,4 +32,26 @@ users.insertData = (data, callback )=>{
     }
 }
 
+users.deleteUsers = (id, callback)=>{
+    if(database){
+        let sql = `DELETE FROM users WHERE id_users = ?`
+        database.query(sql, id, (err, result)=>{
+            if(err) throw err;
+            callback(result)
+        })
+    }
+}
+
+users.updateUsers = (data, callback )=>{
+    if(database){
+        let values = [ data.nombre, data.apellido, data.id ]
+        let sql = `UPDATE users SET nombre= ? , apellido= ? WHERE id_users = ?`
+        database.query(sql, values,(err, results)=>{
+            if(err) throw err;
+            callback(results)
+        })
+    }
+}
+
+
 module.exports = users

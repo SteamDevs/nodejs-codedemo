@@ -10,4 +10,3 @@ let params = {
 let conn = mysql.createConnection(params);
 
 module.exports = conn;
-

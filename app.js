@@ -8,7 +8,6 @@ let userRoute = require('./routes/users')
 app.get('/', (req, res)=>{
 
     res.send({message: 'hola a todos los de kinal' })
-
 })
 
 //BODY PARSER CONFIG
