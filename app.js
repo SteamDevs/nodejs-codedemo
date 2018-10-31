@@ -1,9 +1,12 @@
 const express = require('express')
 var bodyParser = require('body-parser')
 let app = express()
+const mysql = require('mysql');
+
 
 //Aqui van todos los routes
 let userRoute = require('./routes/users')
+let rolRoute = require('./routes/rol')
 
 app.get('/', (req, res)=>{
 
@@ -18,29 +21,10 @@ app.use(bodyParser.json())
 
 //Moddleware de rutas o indexando las rutas
 app.use('/api/v1/users', userRoute )
+app.use('/api/v1/rol', rolRoute )
 
 
 const PORT = 3000
-
-/*Ver
-    - https://github.com/mysqljs/mysql
-    - Middleware
-    - Bootstrap
-    - End-Point
-    - 'use_strict'
-*/
-
-/*
-TABLE DEMO
-
-CREATE TABLE users(
-	id_users INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(255) NOT NULL,
-    apellido VARCHAR(25) NOT NULL,
-    PRIMARY KEY(id_users)
-);
-
-*/
 
 //Esto escucha el puerto
 app.listen(PORT, ()=>{
