@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "91c42836-3793-49d1-a417-f8ebe85378c4",
+		"name": "demoHTTP",
+		"description": "Esta Coleccion tendra todo los End-Points del Sistema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users : GET usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						""
+					]
+				},
+				"description": "Este Obtiene toda la data de los usuarios\n\nhttp://localhost:3000/api/v1/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "Users : GET/ID Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						""
+					]
+				},
+				"description": "Este End-Point Devielve un solo dato que pasa como parametro\nhttp://localhost:3000/api/v1/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Users : POST Usuarios",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "BRYAN",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "GERONIMO",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						""
+					]
+				},
+				"description": "Este End-Point Inserta un nuevo registro\nhttp://localhost:3000/api/v1/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "Users : DELETE Usuarios",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"12"
+					]
+				},
+				"description": "Este End-Point Puede Eliminar un archivo\n(SOLO SE PUEDEN ELIMINAR LOS QUE NO ESTEN RELACIONADOS)\nhttp://localhost:3000/api/v1/users/12"
+			},
+			"response": []
+		},
+		{
+			"name": "Users: UPDATE Ususuarios",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Bryan",
+							"type": "text"
+						},
+						{
+							"key": "apellido",
+							"value": "Geronimo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"13"
+					]
+				},
+				"description": "Este End-Point Actualiza un Usuario\n\nhttp://localhost:3000/api/v1/users/13"
+			},
+			"response": []
+		},
+		{
+			"name": "Rol : GET ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/rol/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"rol",
+						""
+					]
+				},
+				"description": "Este End-Pont Obtiene todos los resultados\n\nhttp://localhost:3000/api/v1/rol/"
+			},
+			"response": []
+		},
+		{
+			"name": "Rol : POST ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tipo",
+							"value": "cualquiera",
+							"type": "text"
+						},
+						{
+							"key": "id_users",
+							"value": "13",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/rol/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"rol",
+						""
+					]
+				},
+				"description": "Este End-Point Inserta un usuario/Rol\n\nhttp://localhost:3000/api/v1/rol/"
+			},
+			"response": []
+		}
+	]
+}

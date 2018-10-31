@@ -3,7 +3,6 @@ var bodyParser = require('body-parser')
 let app = express()
 const mysql = require('mysql');
 
-
 //Aqui van todos los routes
 let userRoute = require('./routes/users')
 let rolRoute = require('./routes/rol')
