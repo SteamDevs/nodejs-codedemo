@@ -37,7 +37,6 @@ if(!empty($_POST)){
         if($result == true ){
             echo 'Tu informacion se almaceno correctamente';
         }
-
     ?>
     <br><br>
     <div>
