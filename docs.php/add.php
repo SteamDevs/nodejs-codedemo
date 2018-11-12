@@ -33,7 +33,13 @@ if(!empty($_POST)){
 <body>
 
     <a href="index.php">HOME</a>
+    <?php
+        if($result == true ){
+            echo 'Tu informacion se almaceno correctamente';
+        }
 
+    ?>
+    <br><br>
     <div>
         <form action="add.php" method="POST">
             <label for="">nombre</label>
