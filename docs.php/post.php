@@ -1,5 +1,7 @@
 <?php
 
+$result = false;
+
 if(!empty($_POST)){
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
@@ -21,7 +23,7 @@ if(!empty($_POST)){
     $result = curl_exec($ch);
     curl_close($ch);
 
-    echo $result;
+    //echo $result; 
 }
 ?>
 
@@ -34,6 +36,12 @@ if(!empty($_POST)){
     <title>POST PRUEBA</title>
 </head>
 <body>
+
+    <?php
+        if($result == true){
+            echo 'Ingreso de datos exitoso!!';
+        }
+    ?>
 
     <form action="post.php" method="POST">
         <label for="">nombre</label>
