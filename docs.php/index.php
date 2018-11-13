@@ -42,7 +42,7 @@ $result = $preparando_consulta->fetchAll();
         <?php
             foreach($result as $row){
                 echo '<tr>';
-                echo '<td>' . $row['nombre'] .'</td>';
+                echo '<td>' . $row["nombre"] .'</td>';
                 echo '<td>'. $row['apellido'] .'</td>';
                 echo '</tr>';    
 
