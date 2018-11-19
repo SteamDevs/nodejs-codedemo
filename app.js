@@ -17,6 +17,11 @@ app.get('/', (req, res)=>{
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 //Moddleware de rutas o indexando las rutas
 app.use('/api/v1/users', userRoute )
