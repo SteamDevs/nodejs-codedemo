@@ -6,6 +6,7 @@ const mysql = require('mysql');
 //Aqui van todos los routes
 let userRoute = require('./routes/users')
 let rolRoute = require('./routes/rol')
+let authRoute = require('./routes/auth')
 
 app.get('/', (req, res)=>{
 
@@ -26,7 +27,7 @@ app.use(function(req, res, next) {
 //Moddleware de rutas o indexando las rutas
 app.use('/api/v1/users', userRoute )
 app.use('/api/v1/rol', rolRoute )
-
+app.use('/api/v1/auth', authRoute )
 
 const PORT = 3000
 
