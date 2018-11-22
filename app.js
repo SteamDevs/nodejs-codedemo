@@ -1,7 +1,6 @@
 const express = require('express')
 var bodyParser = require('body-parser')
 let app = express()
-const mysql = require('mysql');
 
 //Aqui van todos los routes
 let userRoute = require('./routes/users')
@@ -36,4 +35,4 @@ app.listen(PORT, ()=>{
     console.log(`
         Estoy escuchando en el puerto ${PORT}
     `)
-});
+})

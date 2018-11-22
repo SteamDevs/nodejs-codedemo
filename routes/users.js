@@ -1,5 +1,5 @@
 const express = require('express')
-let app = express();
+let app = express()
 
 let model_user = require('../model/users')
 
