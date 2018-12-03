@@ -6,6 +6,7 @@ let app = express()
 let userRoute = require('./routes/users')
 let rolRoute = require('./routes/rol')
 let authRoute = require('./routes/auth')
+let asyncRoute = require('./routes/async')
 
 app.get('/', (req, res)=>{
 
@@ -27,6 +28,7 @@ app.use(function(req, res, next) {
 app.use('/api/v1/users', userRoute )
 app.use('/api/v1/rol', rolRoute )
 app.use('/api/v1/auth', authRoute )
+app.use('/api/v1/async', asyncRoute)
 
 const PORT = 3000
 

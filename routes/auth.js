@@ -2,31 +2,31 @@ const express = require('express')
 const app = express()
 const jwt = require('jsonwebtoken')
 
-const modelAuth = require('../model/login')
+const modelAuth = require('../model/login') 
 
-const SEED = 'misuperencriptacionhackobito'
+const SEED = 'misuperencripacionhackobo'
 
 app.post('/', (req, res)=>{
 
-    modelAuth.auth(req.body, (err, results)=>{
-        if (Object.keys(results).length){
+    modelAuth.auth( req.body, (err, results)=>{
+        if(Object.keys(results).length){
 
             const token = jwt.sign(
-                { usuario: req.body }, 
-                        SEED, 
-                { expiresIn:  14400  })
+            { usuario: req.body }, 
+                SEED, 
+            { expiresIn:  14400  })
 
-            return res.status(200).json({
+            res.status(200).json({
                 ok: true,
                 message: 'Te has logueado',
                 results: results,
-                token: token
+                token : token
             })
+
         }else{
-            res.send({ message: ' Usuario o contraseña incorrecta'})
+            res.send({ message: 'Usuario/ Pass Incorrecto' })
         }
     })
 
 })
-
-module.exports = app;
+module.exports = app
