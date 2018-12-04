@@ -28,7 +28,7 @@ let asyD = {
             let sql = `DELETE FROM async WHERE id_async = ?`
             let asy = await db.query(sql, id, (err, results)=>{
                 if(err) throw err;
-                deleteAsy(results)
+                return deleteAsy(results)
             })
         }
     },
@@ -39,7 +39,7 @@ let asyD = {
             let sql = `UPDATE async SET tema = ?, descripcion = ? WHERE id_async = ?`
             let asy = await db.query(sql, values, (err, results)=>{
                 if(err) throw err;
-                updateAsy(results)
+                return updateAsy(results)
             })
         }
     }
