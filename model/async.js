@@ -1,6 +1,6 @@
 const db = require('../www/config')
 
-let rol = {
+let asyD = {
     getAll: async (data) => {
         if(db){
             let sql = `SELECT * FROM async`
@@ -45,4 +45,4 @@ let rol = {
     }
 }
 
-module.exports = rol;
+module.exports = asyD;
