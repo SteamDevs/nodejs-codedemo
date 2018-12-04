@@ -12,16 +12,14 @@ let rol = {
         }
     },
 
-    insertData: async(data)=>{
+    insertData: async(data, newRol )=>{
         if(db){
             let values = [ data.tipo, data.id_users]
             let sql = `INSERT INTO rol(tipo, id_users) VALUES(?, ?)`          
-            const INSERT_ROL = await database.query(sql, values, (err, result)=>{
+            let rl = await db.query(sql, values, (err, result)=>{
                 if(err) throw err;
-                    let data = INSERT_ROL.val()
-                    return data 
+                return newRol(result) 
             })
-
         }
     },
 

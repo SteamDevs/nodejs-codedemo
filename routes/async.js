@@ -13,5 +13,18 @@ app.get('/', async(req, res)=>{
     }
 })
 
+app.post('/', async(req, res)=>{
+    try {
+        let rl = await asyncModel.insertData(req.body, (newAsync)=>{
+            res.status(200).json({
+                message: 'Consulta exitosa',
+                results: newAsync 
+            })    
+        })            
+    } catch (err) {
+        return console.log(err);
+    }
+})
+
 
 module.exports = app;
