@@ -34,7 +34,17 @@ function sendJSON($array_data,
     $result = curl_exec($ch);
     curl_close($ch);
 
+
+    if(!empty($is_delete)){
+        echo 'quieres eliminar algo';
+    }
+
+    if(!empty($is_edit)){
+        echo 'quieres editar algo';
+    }
+
 }
+
 
 
 ?>

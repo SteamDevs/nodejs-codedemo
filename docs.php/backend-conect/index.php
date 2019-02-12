@@ -4,7 +4,6 @@
    
    $data = file_get_contents($API_URL); //Agrega un contenedor del archivo JSON
    $json = json_decode($data, true );  //Codifica el JSON a un  Objeto DB
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,18 +21,21 @@
 
     <table>
         <tr>
+            <th>id</th>
             <th>nombre </th>
             <th>apellido</th> 
             
         </tr>
         <?php
-            foreach($json['results'] as $row){
-                echo '<tr>';
-                echo '<td>' . $row["nombre"] .'</td>';
-                echo '<td>'. $row['apellido'] .'</td>';
-                echo '</tr>';    
-
-            }
+            foreach($json as $val => $keys):
+        ?>
+            <tr>
+            <td><?=$keys['id_users'] ?></td> 
+            <td><?=$keys['nombre'] ?></td> 
+            <td><?=$keys['apellido'] ?></td> 
+            </tr>
+        <?php
+            endforeach;
         ?>
     </table>
 
