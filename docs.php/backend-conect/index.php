@@ -1,9 +1,22 @@
 <?php
-
+   require_once 'functions.php';
    $API_URL = "http://localhost:3000/api/v1/users/";
    
    $data = file_get_contents($API_URL); //Agrega un contenedor del archivo JSON
    $json = json_decode($data, true );  //Codifica el JSON a un  Objeto DB
+   
+   
+   if(!empty($_GET)){
+        $idx = isset($_GET['id']) 
+            ? $_GET['id'] : false;
+
+    $API_URL_DELETE = "localhost:3000/api/v1/users/". $idx;
+
+    $exec_statement = deleteJSON($API_URL_DELETE, $idx);
+
+     
+ }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +36,8 @@
         <tr>
             <th>id</th>
             <th>nombre </th>
-            <th>apellido</th> 
+            <th>apellido</th>
+            <th>opciones</th> 
             
         </tr>
         <?php
@@ -32,7 +46,11 @@
             <tr>
             <td><?=$keys['id_users'] ?></td> 
             <td><?=$keys['nombre'] ?></td> 
-            <td><?=$keys['apellido'] ?></td> 
+            <td><?=$keys['apellido'] ?></td>
+            <td>
+                <a href="">Editar</a>
+                <a href="index.php?id=<?=$keys['id_users']?> ">Eliminar</a>
+            </td> 
             </tr>
         <?php
             endforeach;

@@ -45,6 +45,18 @@ function sendJSON($array_data,
 
 }
 
+function deleteJSON($url, $id){
+
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE"); 
+    curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($id));
+    $response = curl_exec($curl);
+    $data = json_decode($response);
+    
+    curl_close($curl);;
+}
+
 
 
 ?>
