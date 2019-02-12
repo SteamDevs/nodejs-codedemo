@@ -13,7 +13,8 @@ app.get('/', (req, res)=>{
                 errors: err
             })            
         }
-        res.send({ message: 'Consulta exitosa', results: userDB })
+        
+        res.status(200).json(userDB)
     })
 })
 
@@ -30,12 +31,7 @@ app.get('/:id', (req, res)=>{
             })             
         }
 
-        res.status(200).json({
-            ok: true,
-            message: 'Consulta exitosa',
-            results:  userDbId 
-        })
-
+        res.status(200).json(userDbId)
     })
 })
 
@@ -53,11 +49,7 @@ app.post('/', (req, res)=>{
             })
         }
 
-        res.status(200).json({
-            ok: true,
-            message: 'Consulta exitosa',
-            result: newUser
-        })
+        res.status(201).send({ messgae: 'Usuario creado exiotsamente' })
     })
 })
 
