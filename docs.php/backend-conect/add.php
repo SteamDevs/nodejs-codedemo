@@ -3,6 +3,7 @@
 $result = false;
 
 if(!empty($_POST)){
+    require_once 'functions.php';
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
 
@@ -12,15 +13,9 @@ if(!empty($_POST)){
     );
     
     $API_URL = "http://localhost:3000/api/v1/users/";   
+    $exec_statement = sendJSON($data, $API_URL );
 
-    $data_str = http_build_query($data);
     
- 	$ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL, $API_URL);
-    curl_setopt($ch,CURLOPT_POST, 1);
-    curl_setopt($ch,CURLOPT_POSTFIELDS, $data_str);
-    $result = curl_exec($ch);
-    curl_close($ch);
 }
 ?>
 <!DOCTYPE html>
