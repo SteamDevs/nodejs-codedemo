@@ -94,6 +94,23 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
 
         break;
 
+        case 'editar';
+            //https://stackoverflow.com/questions/5043525/php-curl-http-put
+            $data = array("a" => $a);
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
+            
+            $response = curl_exec($ch);
+            
+            if (!$response) 
+            {
+                return false;
+            }
+
+        break;
+
             default: 
                 echo 'parametro no valido';
     }
