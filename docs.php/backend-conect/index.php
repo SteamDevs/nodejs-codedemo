@@ -13,9 +13,17 @@
     $API_URL_DELETE = "localhost:3000/api/v1/users/". $idx;
 
     $exec_statement = deleteJSON($API_URL_DELETE, $idx);
-
-     
+ 
  }
+
+
+
+    $verbo = 'listar';
+    var_dump($verbo);
+
+    $exec_fn = dataJSON($API_URL, null, null, $verbo);
+
+    var_dump($exec_fn);
 
 ?>
 <!DOCTYPE html>

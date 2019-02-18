@@ -58,5 +58,33 @@ function deleteJSON($url, $id){
 }
 
 
+function dataJSON($url, $array_data = null, $id = null, $action ){
+
+    switch($action){
+        case 'listar':
+            
+            $data = file_get_contents($url);
+            $jsonData = json_decode($data, true);
+            return $jsonData;
+        
+        break;
+
+        case 'agregar':
+            echo 'has agregado';
+        break;
+
+        case 'editar';
+            echo 'has editado';
+        break;
+
+            default: 
+                echo 'parametro no valido';
+    }
+
+
+
+}
+
+
 
 ?>
