@@ -12,12 +12,10 @@ if(!empty($_POST)){
         'apellido' => $apellido
     );
 
-    $delete = 'eliminalo';
-    $edit = 'editamelo';
-    
+    $verbo = 'agregar';
     $API_URL = "http://localhost:3000/api/v1/users/";   
-    $exec_statement = sendJSON($data, $API_URL);
-    //sendJSON($data, $API_URL, null, $delete );                   
+    $exec_statement = dataJSON($API_URL, $data, null, $verbo);
+               
     
 }
 ?>

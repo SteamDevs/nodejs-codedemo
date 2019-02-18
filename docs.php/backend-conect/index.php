@@ -2,28 +2,16 @@
    require_once 'functions.php';
    $API_URL = "http://localhost:3000/api/v1/users/";
    
-   $data = file_get_contents($API_URL); //Agrega un contenedor del archivo JSON
-   $json = json_decode($data, true );  //Codifica el JSON a un  Objeto DB
-   
-   
    if(!empty($_GET)){
         $idx = isset($_GET['id']) 
             ? $_GET['id'] : false;
-
+    
+    $verbo = "eliminar";
     $API_URL_DELETE = "localhost:3000/api/v1/users/". $idx;
 
-    $exec_statement = deleteJSON($API_URL_DELETE, $idx);
+    $exec_statement = dataJSON($API_URL_DELETE, $array_data = null, $idx, $verbo );
  
  }
-
-
-
-    $verbo = 'listar';
-    var_dump($verbo);
-
-    $exec_fn = dataJSON($API_URL, null, null, $verbo);
-
-    var_dump($exec_fn);
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +37,9 @@
             
         </tr>
         <?php
-            foreach($json as $val => $keys):
+            $verbo = 'listar';
+            $exec_fn = dataJSON($API_URL, null, null, $verbo);
+            foreach($exec_fn as $val => $keys):
         ?>
             <tr>
             <td><?=$keys['id_users'] ?></td> 

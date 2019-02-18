@@ -70,11 +70,28 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
         break;
 
         case 'agregar':
-            echo 'has agregado';
+            
+            $data_str = http_build_query($array_data);
+
+            $curl = curl_init();
+            curl_setopt($curl,CURLOPT_URL, $url);
+            curl_setopt($curl,CURLOPT_POST, 1);
+            curl_setopt($curl,CURLOPT_POSTFIELDS, $data_str);
+            $result = curl_exec($curl);
+            curl_close($curl);
+
         break;
 
-        case 'editar';
-            echo 'has editado';
+        case 'eliminar';
+            
+            $curl = curl_init($url);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE"); 
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($id));
+            $result = curl_exec($curl);
+            $data = json_decode($result);
+            curl_close($curl);
+
         break;
 
             default: 
