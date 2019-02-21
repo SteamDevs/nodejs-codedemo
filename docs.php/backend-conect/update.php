@@ -15,7 +15,7 @@ $q = isset($q) ? $q : 'no mnaste nada';
     }
 
     if(isset($_POST['edit'])){
-        require_once 'functions.php';
+        //require_once 'functions.php';
         
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];

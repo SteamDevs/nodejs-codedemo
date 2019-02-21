@@ -1,11 +1,14 @@
 <?php
+
 /*
+
     $data = array(
         'nombre' => $nombre,
         'apellido' => $apellido
     );
     
     $API_URL = "http://localhost:3000/api/v1/users/";   
+
     $data_str = http_build_query($data);
     
  	$ch = curl_init();
@@ -14,24 +17,36 @@
     curl_setopt($ch,CURLOPT_POSTFIELDS, $data_str);
     $result = curl_exec($ch);
     curl_close($ch);
+
+
 */
+
+
 function sendJSON($array_data, 
     $url_api, $is_edit = null, $is_delete = null ){
+
     $data_str = http_build_query($array_data);
+
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL,  $url_api);
     curl_setopt($ch,CURLOPT_POST, 1);
     curl_setopt($ch,CURLOPT_POSTFIELDS, $data_str);
     $result = curl_exec($ch);
     curl_close($ch);
+
+
     if(!empty($is_delete)){
         echo 'quieres eliminar algo';
     }
+
     if(!empty($is_edit)){
         echo 'quieres editar algo';
     }
+
 }
+
 function deleteJSON($url, $id){
+
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE"); 
@@ -41,14 +56,10 @@ function deleteJSON($url, $id){
     
     curl_close($curl);;
 }
-<<<<<<< HEAD
-function dataJSON($url, $array_data = null, $id = null, $action ){
-=======
 
+DEFINE('API_URL', '104.131.121.217:1124/api/v1/');
 
 function dataJSON($url, $array_data = null, $id = null, $action ){
-
->>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
     switch($action){
         case 'listar':
             
@@ -57,30 +68,16 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             return $jsonData;
         
         break;
-<<<<<<< HEAD
         case 'agregar':
             
             $data_str = http_build_query($array_data);
-=======
-
-        case 'agregar':
-            
-            $data_str = http_build_query($array_data);
-
->>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
             $curl = curl_init();
-            curl_setopt($curl,CURLOPT_URL, $url);
+            curl_setopt($curl,CURLOPT_URL, API_URL.$url);
             curl_setopt($curl,CURLOPT_POST, 1);
             curl_setopt($curl,CURLOPT_POSTFIELDS, $data_str);
             $result = curl_exec($curl);
             curl_close($curl);
-<<<<<<< HEAD
         break;
-=======
-
-        break;
-
->>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
         case 'eliminar';
             
             $curl = curl_init($url);
@@ -90,13 +87,7 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             $result = curl_exec($curl);
             $data = json_decode($result);
             curl_close($curl);
-<<<<<<< HEAD
         break;
-=======
-
-        break;
-
->>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
         case 'editar';
             //https://stackoverflow.com/questions/5043525/php-curl-http-put
             $data = array("a" => $a);
@@ -111,25 +102,12 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             {
                 return false;
             }
-<<<<<<< HEAD
         break;
             default: 
                 echo 'parametro no valido';
     }
 }
-=======
-
-        break;
-
-            default: 
-                echo 'parametro no valido';
-    }
 
 
 
-}
-
-
-
->>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
 ?>
