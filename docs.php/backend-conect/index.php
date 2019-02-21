@@ -8,6 +8,10 @@
     
     $verbo = "eliminar";
     $API_URL_DELETE = "localhost:3000/api/v1/users/". $idx;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
     $exec_statement = dataJSON($API_URL_DELETE, $array_data = null, $idx, $verbo );
  
  }

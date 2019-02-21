@@ -8,6 +8,10 @@ if(!empty($_POST)){
         'nombre' => $nombre,
         'apellido' => $apellido
     );
+<<<<<<< HEAD
+=======
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
     $verbo = 'agregar';
     $API_URL = "http://localhost:3000/api/v1/users/";   
     $exec_statement = dataJSON($API_URL, $data, null, $verbo);

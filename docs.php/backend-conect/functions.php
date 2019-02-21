@@ -41,7 +41,14 @@ function deleteJSON($url, $id){
     
     curl_close($curl);;
 }
+<<<<<<< HEAD
 function dataJSON($url, $array_data = null, $id = null, $action ){
+=======
+
+
+function dataJSON($url, $array_data = null, $id = null, $action ){
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
     switch($action){
         case 'listar':
             
@@ -50,16 +57,30 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             return $jsonData;
         
         break;
+<<<<<<< HEAD
         case 'agregar':
             
             $data_str = http_build_query($array_data);
+=======
+
+        case 'agregar':
+            
+            $data_str = http_build_query($array_data);
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
             $curl = curl_init();
             curl_setopt($curl,CURLOPT_URL, $url);
             curl_setopt($curl,CURLOPT_POST, 1);
             curl_setopt($curl,CURLOPT_POSTFIELDS, $data_str);
             $result = curl_exec($curl);
             curl_close($curl);
+<<<<<<< HEAD
         break;
+=======
+
+        break;
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
         case 'eliminar';
             
             $curl = curl_init($url);
@@ -69,7 +90,13 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             $result = curl_exec($curl);
             $data = json_decode($result);
             curl_close($curl);
+<<<<<<< HEAD
         break;
+=======
+
+        break;
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
         case 'editar';
             //https://stackoverflow.com/questions/5043525/php-curl-http-put
             $data = array("a" => $a);
@@ -84,9 +111,25 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             {
                 return false;
             }
+<<<<<<< HEAD
         break;
             default: 
                 echo 'parametro no valido';
     }
 }
+=======
+
+        break;
+
+            default: 
+                echo 'parametro no valido';
+    }
+
+
+
+}
+
+
+
+>>>>>>> 187cb2f1f12bbcbb10205bf926819ed726238e76
 ?>
