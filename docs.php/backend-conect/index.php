@@ -7,8 +7,12 @@
             ? $_GET['id'] : false;
     
     $verbo = "eliminar";
+
+    $newid = array();
+    $newid = $idx;
+
     $API_URL_DELETE = "localhost:3000/api/v1/users/". $idx;
-    $exec_statement = dataJSON($API_URL_DELETE, $array_data = null, $idx, $verbo );
+    $exec_statement = dataJSON($API_URL_DELETE, $newid, $verbo );
  
  }
 ?>
@@ -36,7 +40,7 @@
         </tr>
         <?php
             $verbo = 'listar';
-            $exec_fn = dataJSON($API_URL, null, null, $verbo);
+            $exec_fn = dataJSON($API_URL, null, $verbo);
             foreach($exec_fn as $val => $keys):
         ?>
             <tr>

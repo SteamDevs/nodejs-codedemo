@@ -31,7 +31,7 @@ $q = isset($q) ? $q : 'no mnaste nada';
         $url = "http://localhost:3000/api/v1/users/" .$idx;
 
         $verbo = 'editar';
-        $exc_update = dataJSON($url, $data, null, $verbo);
+        $exc_update = dataJSON($url, $data, $verbo);
        
     }
 
