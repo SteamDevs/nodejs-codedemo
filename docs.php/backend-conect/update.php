@@ -12,10 +12,11 @@ $q = isset($q) ? $q : 'no mnaste nada';
         $data = file_get_contents($url);
         $q = array();
         $q = json_decode($data, true);
+    
     }
 
     if(isset($_POST['edit'])){
-        //require_once 'functions.php';
+        require_once 'functions.php';
         
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -29,16 +30,8 @@ $q = isset($q) ? $q : 'no mnaste nada';
 
         $url = "http://localhost:3000/api/v1/users/" .$idx;
 
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data) );
-        $response = curl_exec($ch);
-
-        if($response){
-            header("Location: index.php");
-        }
-
+        $verbo = 'editar';
+        $exc_update = dataJSON($url, $data, null, $verbo);
        
     }
 

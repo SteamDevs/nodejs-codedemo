@@ -57,7 +57,6 @@ function deleteJSON($url, $id){
     curl_close($curl);;
 }
 
-DEFINE('API_URL', '104.131.121.217:1124/api/v1/');
 
 function dataJSON($url, $array_data = null, $id = null, $action ){
     switch($action){
@@ -72,7 +71,7 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             
             $data_str = http_build_query($array_data);
             $curl = curl_init();
-            curl_setopt($curl,CURLOPT_URL, API_URL.$url);
+            curl_setopt($curl,CURLOPT_URL, $url);
             curl_setopt($curl,CURLOPT_POST, 1);
             curl_setopt($curl,CURLOPT_POSTFIELDS, $data_str);
             $result = curl_exec($curl);
@@ -88,20 +87,22 @@ function dataJSON($url, $array_data = null, $id = null, $action ){
             $data = json_decode($result);
             curl_close($curl);
         break;
+
         case 'editar';
-            //https://stackoverflow.com/questions/5043525/php-curl-http-put
-            $data = array("a" => $a);
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-            curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($data));
+
+        $data_str = http_build_query($array_data);
             
-            $response = curl_exec($ch);
-            
-            if (!$response) 
-            {
-                return false;
-            }
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_str );
+        $response = curl_exec($ch);
+
+        if($response){
+            header("Location: index.php");
+        }
+
+
         break;
             default: 
                 echo 'parametro no valido';
