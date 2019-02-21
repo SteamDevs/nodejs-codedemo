@@ -48,6 +48,9 @@ users.deleteUsers = (id, callback)=>{
 
 users.updateUsers = (data, callback )=>{
     if(database){
+
+        console.log(data);
+
         let values = [ data.nombre, data.apellido, data.id ]
         let sql = `UPDATE users SET nombre= ? , apellido= ? WHERE id_users = ?`
         database.query(sql, values,(err, results)=>{

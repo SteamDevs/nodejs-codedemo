@@ -44,7 +44,7 @@
             <td><?=$keys['nombre'] ?></td> 
             <td><?=$keys['apellido'] ?></td>
             <td>
-                <a href="">Editar</a>
+                <a href="update.php?id=<?= $keys['id_users'] ?>">Editar</a>
                 <a href="index.php?id=<?=$keys['id_users']?> ">Eliminar</a>
             </td> 
             </tr>

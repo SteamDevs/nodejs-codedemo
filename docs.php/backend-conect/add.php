@@ -27,6 +27,9 @@ if(!empty($_POST)){
     
     <h1>estas agregando</h1>
 
+    <a href="index.php">home</a>
+    <br><br>
+
     <?php
     
         if($result == true){
