@@ -38,18 +38,8 @@ app.get('/:id', (req, res)=>{
 
 app.post('/', (req, res)=>{
     
-    let data = [ req.body.nombre, req.body.apellido ];
-        
-    model_user.insertData( data, newUser =>{
-        if(!newUser){
-            return res.status(400).json({
-                ok: false,
-                message: 'error de serv',
-                errors: err
-            })
-        }
-
-        res.status(201).send({ messgae: 'Usuario creado exiotsamente' })
+    model_user.insertData( req.body, (newUser)=>{
+        res.status(201).json({ message: 'Creado exitosamente !' })
     })
 })
 

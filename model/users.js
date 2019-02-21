@@ -24,11 +24,15 @@ users.getId = (id, callback )=>{
 
 users.insertData = (data, callback )=>{
     if(database){
+        
+        let values = [ data.nombre, data.apellido ]
         let sql = `INSERT INTO users(nombre, apellido) VALUES (?,?)`
-        database.query(sql, data, (err, results)=>{
+        
+        database.query(sql, values, (err, results)=>{
             if(err) throw err
             callback(results)
         })
+        console.log(data)
     }
 }
 

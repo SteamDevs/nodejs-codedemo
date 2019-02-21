@@ -1,23 +1,17 @@
 <?php
-
 $result = false;
-
 if(!empty($_POST)){
     require_once 'functions.php';
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-
     $data = array(
         'nombre' => $nombre,
         'apellido' => $apellido
     );
-
-    $delete = 'eliminalo';
-    $edit = 'editamelo';
-    
+    $verbo = 'agregar';
     $API_URL = "http://localhost:3000/api/v1/users/";   
-    $exec_statement = sendJSON($data, $API_URL);
-    //sendJSON($data, $API_URL, null, $delete );                   
+    $exec_statement = dataJSON($API_URL, $data, null, $verbo);
+               
     
 }
 ?>
