@@ -1,12 +1,5 @@
 <?php
 
-/* 
-1-. VARIABLE GLOBALES $_GET, $_POST, $_DELETE 
-2-. COMO FUNCIONA AJAX EN PHP
-3-. Dar estili a la tabla
-
-*/
-
 //Paso 1
 require_once 'conexion.php';
 
