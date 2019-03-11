@@ -12,7 +12,7 @@ if(!empty($_POST)){
     $verbo = 'agregar';
     $API_URL = "http://localhost:3000/api/v1/users/";   
     $exec_statement = dataJSON($API_URL, $data, $verbo);
-               
+    
     
 }
 ?>

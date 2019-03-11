@@ -28,6 +28,8 @@ $q = isset($q) ? $q : 'no mnaste nada';
             'id'=> $idx
         );
 
+        var_dump($data);
+
         $url = "http://localhost:3000/api/v1/users/" .$idx;
 
         $verbo = 'editar';

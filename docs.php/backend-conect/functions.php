@@ -12,14 +12,35 @@ function dataJSON($url, $array_data = null, $action ){
         break;
         case 'agregar':
             
+            //estandarizada sin mensajes desde el backend
             $data_str = http_build_query($array_data);
+                    
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_str );
+            $response = curl_exec($ch);
+            die();
+            //opcional
+            if($response){
+                header("Location: index.php");
+            }
+
+
+            /*
+                antigua version que imprimia mensajes desde el backend
+
+                $data_str = http_build_query($array_data);
+                
+                $curl = curl_init();
+                curl_setopt($curl,CURLOPT_URL, $url);
+                curl_setopt($curl,CURLOPT_POST, 1);
+                curl_setopt($curl,CURLOPT_POSTFIELDS, $data_str);
+                $result = curl_exec($curl);
+                curl_close($curl);
             
-            $curl = curl_init();
-            curl_setopt($curl,CURLOPT_URL, $url);
-            curl_setopt($curl,CURLOPT_POST, 1);
-            curl_setopt($curl,CURLOPT_POSTFIELDS, $data_str);
-            $result = curl_exec($curl);
-            curl_close($curl);
+            */
+
 
         break;
         case 'eliminar';

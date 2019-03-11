@@ -60,5 +60,43 @@ users.updateUsers = (data, callback )=>{
     }
 }
 
+users.mergeTables = (data, callback)=>{
+    if(database){
+
+        /*let sqlx = `SELECT rol.id_rol, rol.tipo, rol.id_users
+            FROM rol
+                INNER JOIN users ON rol.id_users = users.id_users`
+        
+        let options = {sql: sqlx, nestTables: true}
+
+        database.query(options, data, (err, results, fields)=>{
+            if(err) throw err
+            callback(results)
+        })*/
+        
+       let user = {
+           id_users : 1,
+           nombre : "pablo",
+           apellido: "hackobo"
+       }
+       
+       let rol = {
+           id_rol : 1 ,
+           tipo: "admin",
+           id_users: 1
+       }
+
+       for (let key in row) {
+            if (key in user) user[key] = row[key];
+            if (key in rol) rol[key] = row[key];
+            console.log(row)
+        }
+
+     
+
+
+    }
+}
+
 
 module.exports = users
