@@ -58,6 +58,21 @@ users.updateUsers = (data, callback )=>{
             callback(results)
         })
     }
+},
+
+users.sqlData = (data, callback)=>{
+    if(database){
+
+        let values = [data.nombre, data.apellido] 
+        let sql = data.query
+
+        database.query(sql, values, (err, results)=>{
+            if(err) throw err
+            callback(results)
+        })
+
+
+    }
 }
 
 users.mergeTables = (data, callback)=>{

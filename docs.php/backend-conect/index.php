@@ -29,6 +29,7 @@
     <h1>hola</h1>
 
     <a href="add.php">Agregar</a>
+    <a href="matriz.php"> Matriz </a>
 
     <table>
         <tr>

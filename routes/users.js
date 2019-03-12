@@ -126,5 +126,15 @@ app.put('/:id', (req, res)=>{
 })
 
 
+app.post('/sql_matriz', (req, res)=>{
+
+    //console.log(req.body)
+
+    model_user.sqlData(req.body, (newStatement)=>{
+        res.status(201).json({ message: 'Creado exitosamente !' })
+    })
+})
+
+
 
 module.exports = app;
