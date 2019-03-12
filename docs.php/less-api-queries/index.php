@@ -27,6 +27,12 @@ if(!empty($_POST)){
         header("Location: index.php");
     }*/
 
+    $arr = array();
+
+    if($response){
+        $arr = $response;
+    }
+
 }
 
     
@@ -55,6 +61,45 @@ if(!empty($_POST)){
         <input type="submit" value="Guardar" > 
     </form> 
 
+    <?php
+        if(!empty($response)):
+    ?>
+    
+    <table>
+    <tr>
+        <th>nombre </th>
+        <th>apellido</th> 
+        
+    </tr>
+    <?php
+       
+    //var_dump($arr);
+    if(is_array($arr) || is_object($arr)):
+        $x = array();
+        $x = $arr;
+        var_dump($x);
+        foreach($x as $val => $keys):
+        
+    ?>
+        <tr>
+        <td><?=$keys['id_users'] ?></td> 
+        <td><?=$keys['nombre'] ?></td> 
+        <td><?=$keys['apellido'] ?></td>
+        <td>
+            <a href="update.php?id=<?= $keys['id_users'] ?>">Editar</a>
+            <a href="index.php?id=<?=$keys['id_users']?> ">Eliminar</a>
+        </td> 
+        </tr>
+    <?php
+        endforeach;
+    endif;
+    ?>
+</table>
+
+
+    <?php
+        endif
+    ?>
     
 </body>
 </html>
