@@ -63,10 +63,10 @@ users.updateUsers = (data, callback )=>{
 users.sqlData = (data, callback)=>{
     if(database){
 
-        let values = [data.nombre, data.apellido] 
+        //let values = [data.nombre, data.apellido] 
         let sql = data.query
 
-        database.query(sql, values, (err, results)=>{
+        database.query(sql, data, (err, results)=>{
             if(err) throw err
             callback(results)
         })

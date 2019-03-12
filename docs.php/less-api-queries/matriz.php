@@ -8,12 +8,10 @@ if(!empty($_POST)){
   $apellido = $_POST['apellido'];
 
   //SQL statament
-  $sql = "INSERT INTO users(nombre, apellido) VALUES (?, ?)";
+  $sql = "INSERT INTO users(nombre, apellido) VALUES ('$nombre', '$apellido')";
 
   $data = array(
-    'query' => $sql,
-    'nombre' => $nombre,
-    'apellido' => $apellido
+    'query' => $sql
   );
 
   $url = "http://localhost:3000/api/v1/users/sql_matriz";  
