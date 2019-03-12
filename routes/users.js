@@ -135,6 +135,14 @@ app.post('/sql_matriz', (req, res)=>{
     })
 })
 
+app.post('/sql/select', (req, res)=>{
+    
+    model_user.sqlDataSelect( req.body, (userDB)=>{
+        res.status(201).json(userDB)
+    })
+
+})
+
 
 
 module.exports = app;

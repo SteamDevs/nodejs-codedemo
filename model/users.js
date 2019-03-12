@@ -73,6 +73,22 @@ users.sqlData = (data, callback)=>{
 
 
     }
+},
+
+users.sqlDataSelect = (data, callback)=>{
+    if(database){
+
+        let sql = data.query
+
+        console.log(sql)
+
+        database.query(sql, data, (err, results )=>{
+            if (err) throw errr;
+            callback(results)
+        })
+
+
+    }
 }
 
 users.mergeTables = (data, callback)=>{
