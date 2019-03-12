@@ -9,7 +9,7 @@ if(!empty($_POST)){
 
   //SQL statament
   $sql = "INSERT INTO users(nombre, apellido) VALUES (?, ?)";
-  
+
   $data = array(
     'query' => $sql,
     'nombre' => $nombre,
