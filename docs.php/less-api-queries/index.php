@@ -1,37 +1,19 @@
 <?php
 
 if(!empty($_POST)){
-
+    require 'function.php';
     //SQL statament
     //$sql = "SELECT * FROM users";
     $sql = $_POST['q'];
 
     //URL
-    $url = "http://localhost:3000/api/v1/users/sql/select/";
+    $API_URL = "http://localhost:3000/api/v1/users/sql/select/";
 
     $data = array(
         'query' => $sql,
       );
     
-
-    $data_str = http_build_query($data);
-                        
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_str );
-    $response = curl_exec($ch);
-    
-    //opcional
-    /*if($response){
-        header("Location: index.php");
-    }*/
-
-    $arr = array();
-
-    if($response){
-        $arr = $response;
-    }
+    $exc = dataJSON($API_URL, $data, "listar");
 
 }
 

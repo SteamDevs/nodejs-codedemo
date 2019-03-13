@@ -125,6 +125,7 @@ app.put('/:id', (req, res)=>{
     })    
 })
 
+//End-Poinst Less Arch
 
 app.post('/sql_matriz', (req, res)=>{
 
@@ -142,6 +143,18 @@ app.post('/sql/select', (req, res)=>{
     })
 
 })
+
+app.put('/sql/update', (req, res)=>{
+
+
+    
+    model_user.updateUsers( req.body, (updateUser)=>{
+        res.status(201).json(updateUser)
+    })
+    
+})
+
+
 
 
 

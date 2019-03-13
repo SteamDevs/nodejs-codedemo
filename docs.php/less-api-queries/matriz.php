@@ -1,9 +1,8 @@
 <?php
 
-//Process Matriz-Objects
-
 if(!empty($_POST)){
-  
+  require 'function.php';
+
   $nombre = $_POST['nombre'];
   $apellido = $_POST['apellido'];
 
@@ -14,22 +13,8 @@ if(!empty($_POST)){
     'query' => $sql
   );
 
-  $url = "http://localhost:3000/api/v1/users/sql_matriz";  
-
-
-          $data_str = http_build_query($data);
-                    
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_str );
-            $response = curl_exec($ch);
-            die();
-            //opcional
-            if($response){
-                header("Location: index.php");
-            }
-
+  $API_URL = "http://localhost:3000/api/v1/users/sql_matriz";  
+  $exc = dataJSON($API_URL , $data, "agregar");
 
 }
 ?>

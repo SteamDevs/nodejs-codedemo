@@ -13,21 +13,36 @@ $q = isset($q) ? $q : 'no mnaste nada';
 
 
     if(isset($_POST['edit'])){
-        require_once 'functions.php';
+        //require_once 'functions.php';
         
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $idx = $_POST['id'];
+
+        $sql = "UPDATE users SET nombre = $nombre , apellido = $apellido WHERE id_users = $idx";
         
         $data = array(
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'id'=> $idx
+            'query' => $sql
         );
 
-        var_dump($data);
+    /* INICIO DE ACTUALIZAR */
 
-        $url = "http://localhost:3000/api/v1/users/" .$idx;
+    $url = "http://localhost:3000/api/v1/users/sql/update";  
+
+
+    $data_str = http_build_query($data);
+            
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_str );
+    $response = curl_exec($ch);
+
+    /* FIN DE ACTUALIZAR */
+    if($response){
+        echo $response;
+    }
+
 
         //teminar de probar el editar
 
@@ -35,10 +50,6 @@ $q = isset($q) ? $q : 'no mnaste nada';
         $exc_update = dataJSON($url, $data, $verbo);*/
        
     }
-
-    //var_dump($q);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
